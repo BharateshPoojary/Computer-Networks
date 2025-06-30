@@ -44,7 +44,8 @@ So the solution for this is Internet Protocol.
  192.168.1.3/24 -    192.168.1 This is the network part 24 bits 3 bytes
  .3/24 - .3 is the host part which uniquely identifies
  There is some correction here 
- /24 - It is the subnet which specifies how many bits are allocated to network part 
+ /24 - Its a Classless Inter Domain Routing notation which specifies how many bits are allocated to network part and how may are allocated to host part 
+ 
 
 
 
