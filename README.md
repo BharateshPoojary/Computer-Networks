@@ -41,10 +41,18 @@ So the solution for this is Internet Protocol.
  IPV4 is a 32 bit IP (4 Bytes )  Address where the first 24 bit are the network part and the next 8 bit are the host part .
  The host part uniquely identifies each  device in a network .
  Hosts which are in the same network can use Link Address or Mac Address to communicate 
- 192.168.1.3/24 -    192.168.1 This is the network part 24 bits 3 bytes
- .3/24 - .3 is the host part which uniquely identifies
- There is some correction here 
- /24 - Its a Classless Inter Domain Routing notation which specifies how many bits are allocated to network part and how may are allocated to host part 
+ 192.168.1.3/24 -    192.168.1 This is the network part 24 bits or 3 bytes
+ .3/24 - .3 is the host part which uniquely identifies the device in a network 
+We can  check how many bits are allocated to network and host part using the following 2 methdos 
+
+ 1. /24 - Its a Classless Inter Domain Routing notation which specifies how many bits are allocated to network part and how may are allocated to host part
+  
+ 3. 255.255.255.0 it can be represented as 11111111.11111111.11111111.00000000- A subnet mask is a 32-bit number that separates an IP address into two parts: the network ID and the host ID.
+It tells devices which portion of the address belongs to the network and which  portion i.e host identifies individual devices\
+255.255.255.0 - this is just an octal conversion of the 32 bit Ip
+    2^8 is 256 but allocation starts from 0 so 0 to 255 
+![image](https://github.com/user-attachments/assets/72b35e1a-4535-4b7f-b0b0-255e805a033f)
+
  
 
 
