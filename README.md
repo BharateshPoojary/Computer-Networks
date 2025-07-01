@@ -101,7 +101,12 @@ Any thing on top of IP its just Data
 Data is encapsulated in a data link frame 
 But what if device "A" wants to send Data to C or D which both are in different subnetwork 
 lets talk about Internetwork Communication 
-The only possible way to communicate is using the gate way 
+
+The only possible way to communicate is using the gate way (If you want to do ARP you have to be in the same network)
+If you not get the the destined Ip in your subnetwork then you send that IP to the default gateway  so for which you need gateway IP so you get It now you will do ARP to broadcast the message to get the gateways MAC Address but there is a concept of ARP Poisioning here which enables hackers to tell that I am your destined Ip which is not and then we send the packet to the hacker device so this is how data is corrupted well that another topic 
+Coming back to broadcasting to each device in a subnet so gateway will read the broad cast and will unpack it and sees that its his Ip so It will give is mac to source device which broadcasted 
+
+
 
 
 
