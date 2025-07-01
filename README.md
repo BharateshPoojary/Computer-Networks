@@ -85,7 +85,24 @@ Devices are aware of their gateway (default gateway).
 A Gateway device  includes multiple IPs registered  and if there is IP there is a MAC Address for each IPs  so Gateway also have MAC or link Addresses 
 and  A single IP of the gateway is the default gateway of a subnetwork
 
-Switches gets updated with the MAC of ecah device connected to that including the gateway which is also a device and have a MAC 
+Switches gets updated with the MAC of each device connected to that including the gateway which is also a device and have a MAC.
+Switches know where in which port which device is connected 
+
+Let suppose device "A" wants to send data to device "B" so what ARP will do It consider the IP of that destined device and will broadcast to all devices connected through the switch even if it is  a gateway.
+How the device A got the IP address of Device B it is by DNS or something (not talked in detail )
+The ARP REQUEST is not sent through the other networks.
+Once it will get the device with the same IP Address the Device "B" will sent its Mac to "A"  and A will send or communicate with B this is the case when the devices  are in same subnet with gateway connected.
+
+How the data is sent here?
+we  know the direct link address we send an IP Packet which includes source MAC A and destination MAC B and the source IP , destination IP along with the data so its like all this data is encapsulated in a single frame and sent to B .
+B will receive that and it will unpack the frame and it will get an IP Packet over there and it will see that this Ip is me only and what ever instruction it has in PACKET LIKE tcp udp it will just deliver it 
+In case of TCP I will send the IP Packet in front TCP segment inside this IP Packet which includes destination port and source port and then you put your http protocol or ssh protocol or any other on top of TCP .
+Any thing on top of IP its just Data 
+Data is encapsulated in a data link frame 
+But what if device "A" wants to send Data to C or D which both are in different subnetwork 
+lets talk about Internetwork Communication 
+The only possible way to communicate is using the gate way 
+
 
 
 
