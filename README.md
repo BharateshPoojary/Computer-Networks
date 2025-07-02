@@ -104,7 +104,26 @@ lets talk about Internetwork Communication
 
 The only possible way to communicate is using the gate way (If you want to do ARP you have to be in the same network)
 If you not get the the destined Ip in your subnetwork then you send that IP to the default gateway  so for which you need gateway IP so you get It now you will do ARP to broadcast the message to get the gateways MAC Address but there is a concept of ARP Poisioning here which enables hackers to tell that I am your destined Ip which is not and then we send the packet to the hacker device so this is how data is corrupted well that another topic 
-Coming back to broadcasting to each device in a subnet so gateway will read the broad cast and will unpack it and sees that its his Ip so It will give is mac to source device which broadcasted 
+Coming back to broadcasting to each device in a subnet so gateway will read the broad cast and will unpack it and sees that it is his IP so It will give its mac to source device.
+now the source device  will send a frame which includes the MAC Address of both device to ensure source and destination device also the main thing is this frame  includes the IP Packet which includes the source and destination IP , destination IP means the IP of device which is present in other network so first the Frame will be received by router and it will see that 
+the Frame is intended to me but the IP packet inside is not for me it is having something different destination IP so as the router is a linux machine and OS Kernel has a feature something called IP Forwarding 
+Our machine can also be turned as router by enabling this Ip forwarding to true and it will also forward the IP To all the devices of the network
+so the frame is for gateway but the IP inside it is not for it so it will check its registered networks and sees if any network matches with the destination IP if any matches the router will send the packet through that ethernet cable.
+Now gateway/router can do ARP as it is also in the same network of destined device  to get the Mac Address of the destined IP so  ARP willcbroadcast the message and the destined device will read that message and will say its my IP and it will send its MAC to the gateway .
+Now Gateway will send the packet in a frame to the destined device .
+This frame includes source and destination MAC and the Ip packet inside it includes the source and destination Ip (note the source MAC IS routers MAC where as source IP is the  IP of the device of another network ) and this is how routing /  data is sent   across networks.
+
+(There are some cases where we have to change the source IP like say we are in our private network let say 192.168.0.0/16 and we have to talk to google.com so at that time router will not send our private  IP to google and google not even know what 192.168.0.0/16 this IP  mean as it is private .
+There are bunch of Private network which you can check so here in this case source IP gets change and this process is known as Network Address Translation (NAT) )
+Now the Frame is received by destined device it unpacks the frame and sees that Its his MAC and also the Ip belongs to it so now kernel will deliver the message to the application (we will get to how it sends from kernel to application in depth is OS ). Now that destined device will also broadcast a message with the  Ip of our source one which is  residing  on other network so router will read the message and it is having  similar network registered with it so  router will add the layer 2 frame i.e its MAC and sends it to the device which broadcasted layer 1 is the IP packet.
+Now the device got a frame it cracks it and gets the MAC and establishes a communication with gateway Now as the gateway receives the frame it unpack it sees that MAC  is intended to it but the IP inside it isnot for it so it will do IP Forwarding here and now it will broadcast the message with the Destination Ip and this process continues this is how INTERNETWORK ROUTING WORKS .
+In home technically you have one gate way which connects you to the internet but in Internet you will have multiple gatways. There are ISP'S Internet Service Provider like Frontier,Verizon like they have different routers and each router have different subnets. This subnets are reserved for particular ISPs so the thing is you cannot have one default gateway there could be multiple gateways so in that case how it knows from which router we should the frame should go .So to overcome this problem meet the ROUTING TABLE (It WILL TELL IF YOU WANT TO GO HERE OR TO THIS IP THEN GO FROM THESE ROUTER )    
+
+
+
+
+
+
 
 
 
