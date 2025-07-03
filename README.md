@@ -151,8 +151,10 @@ Firt It will make a list that from this Machine through this particular  Network
 Kernel is respondible for following the instructions of routing table 
 There are certain autonomous network which are default configured in routing table like if you want to go google go through this network etc
 
-![image](https://github.com/user-attachments/assets/121d4742-9613-4da6-9445-455b599a5c6d)
+
 ![image](https://github.com/user-attachments/assets/255f6187-62be-4336-804f-78746ee4dbbc)
+
+
 the above is the routing table of  a windows OS
 1. By default for any destination network the default gateway will be 192.168.210.52 and the interface defines  a partcular IP for this device so 169.254.210.52 is my Private IP assigned by this network Interface  as DHCP unable to resolve me any Ip in this case I got this Ip from APIPA Automatic Private IP Addressing .
 2.next all routes we can directly reach through a link no gateway required
