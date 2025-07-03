@@ -151,16 +151,36 @@ Firt It will make a list that from this Machine through this particular  Network
 Kernel is respondible for following the instructions of routing table 
 There are certain autonomous network which are default configured in routing table like if you want to go google go through this network etc
 
-
-![image](https://github.com/user-attachments/assets/255f6187-62be-4336-804f-78746ee4dbbc)
+![image](https://github.com/user-attachments/assets/57831141-16d7-4856-90cb-b6ce9e6bffc8)
 
 
 the above is the routing table of  a windows OS
-1. By default for any destination network the default gateway will be 192.168.210.52 and the interface defines  a partcular IP for this device so 169.254.210.52 is my Private IP assigned by this network Interface  as DHCP unable to resolve me any Ip in this case I got this Ip from APIPA Automatic Private IP Addressing .
-2.next all routes we can directly reach through a link no gateway required
+1. By default for any destination network the default gateway will be 192.168.43.50 and the interface 192.168.43.94  defines  a partcular IP for this device if connected though a wifi in my case as I am connected to that so NIC changes as per the device which you are connected .
+Next all routes we can directly reach through a link no gateway required where the 127.0.0.0 if this is the destination and if this  127.0.0.1 is the source IP then its called a loopback address  
+
+
+![image](https://github.com/user-attachments/assets/1a4106a5-fc5a-4dc2-bd8b-15120d4fd35c)
+
+
+
 ![image](https://github.com/user-attachments/assets/ee179945-e245-404d-973c-3905ae6e8916)
 
-The above is the route table in a linux machine
-For any destination network i.e 0.0.0.0/0 your default gateway will be 192.168.4.1 with the device as ethernet source IP or the Network Interface for this device is 192.168.7.179 IP for this device if connected to ethernet with metric 100 that means it gets the priority as comapred to second one which is connected through a wifi (the traffic is sent faster from here then 2nd one )
 
-3rd one is a docker
+
+The above is the route table in a linux machine
+For any destination network i.e 0.0.0.0/0 your default gateway will be 192.168.4.1 with the device as ethernet  and source IP or the Network Interface for this device is 192.168.7.179 IP for this device if connected to ethernet with metric 100 that means it gets the priority as compared to second one which is connected through a wifi (the traffic is sent faster from here then 2nd one) 
+The source IP is assigned by DHCP 
+
+3rd one If the request is from a docker virtual interface i.e from IP 127.17.0.1 then your network destination will be 127.17.0.0/16  and below all are direct link we just have to do ARP , NOW  we can directly communicate through the MAC 
+we can see ethernet has lower metric as compared to wifi so it is preffered but we can also manually configure like which one to choose when going to this particular destination.
+
+https://youtu.be/iV5fajdpb7c?si=WPkeoDREEroZZ8sC
+
+
+
+
+
+
+
+
+
