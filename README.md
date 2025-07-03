@@ -118,26 +118,47 @@ There are bunch of Private network which you can check so here in this case sour
 Now the Frame is received by destined device it unpacks the frame and sees that Its his MAC and also the Ip belongs to it so now kernel will deliver the message to the application (we will get to how it sends from kernel to application in depth is OS ). Now that destined device will also broadcast a message with the  Ip of our source one which is  residing  on other network so router will read the message and it is having  similar network registered with it so  router will add the layer 2 frame i.e its MAC and sends it to the device which broadcasted layer 1 is the IP packet.
 Now the device got a frame it cracks it and gets the MAC and establishes a communication with gateway Now as the gateway receives the frame it unpack it sees that MAC  is intended to it but the IP inside it isnot for it so it will do IP Forwarding here and now it will broadcast the message with the Destination Ip and this process continues this is how INTERNETWORK ROUTING WORKS .
 In home technically you have one gate way which connects you to the internet but in Internet you will have multiple gatways. There are ISP'S Internet Service Provider like Frontier,Verizon like they have different routers and each router have different subnets. This subnets are reserved for particular ISPs so the thing is you cannot have one default gateway there could be multiple gateways so in that case how it knows from which router we should the frame should go .So to overcome this problem meet the ROUTING TABLE (It WILL TELL IF YOU WANT TO GO HERE OR TO THIS IP THEN GO FROM THESE ROUTER )    
+It includes a bunch of field like 
+1.Where do you want to go?(which network)
+2.What is the nexthop (gateway)?
+3.Is it direct link or not?(If it is in a same subnet)
+4.Weight (metric) - which router should you prior so that you can go fastly
+5.Which interface should I go through is it a ethernet interface or a wifi 
+Each OS has its own routing table MAC is having its own , Windows is having its own,
+But the fields are the same 
+the Table is already configured in our machine and we can configure that as well like if you want to go google then go from this machine you can send all the traffic to a single machine 
+and from there you can send the traffic to where they are intended to go.
+![image](https://github.com/user-attachments/assets/6863c07f-4c1a-48aa-ba6b-d39286247bc2)
+As per the above image line 3 if you are going to any network you should go from 192.168.1.1  and there is no direct link you cannot do ARP here the higher the weight the lower the priority given to the router as there could be router who have lower weight so we prefer going throught that so that we can reach fastly
+If you are going to any network then go through this Network Interface i.e in line 3 there is ethernet 1 .(we should go from there if we are going any where )
+next if you want to go in this network  10.0.0.0/24 then there is no nexthop, there is a direct link means you can do ARP and the lower the weight the higher the chances of getting faster over there and we should go through ethernet 2
+![image](https://github.com/user-attachments/assets/353f01fd-8456-4cdf-a49b-a074119d34af)
+as per the image if you want to go to 172.16.6.2 then go through 10.0.0.6 gateway 
+if you are going to any where then go throught this 10.0.0.1 gateway
+this is the routing table which we can configure either in each machine of subnetwork or we can also configure this routing table in a router itself but the thing is everytime the machine want to communicate with any device first it has to go through its default gateway which would be slower but if we need faster then we have to configure it in every machine so there is trade offs 
+![image](https://github.com/user-attachments/assets/6ede3639-373e-4bfb-8121-e1907e6009cb)
 
+Who updates the routing table ?
+Kernel,DHCP,Other protocols like OSPF,BGP or even manually
+DHCP-Dynamic Host Control Protocol which assigns the IP address for us if we dont want to statically configure by us .
+OSPF-Open shortest protocol first
+BGP-Border Gateway Protocol on top of which the internet runs on
+All of this  do is just update the routing table
+![image](https://github.com/user-attachments/assets/de09dabf-cadd-4071-8f6f-213b05a1b1f7)
 
+OHCP What it will do is 
+Firt It will make a list that from this Machine through this particular  Network Card what are all the possible Interfaces what are the possible direct links based on that it determines the shortest path to send data and this Shortest Path it writes in the routing table
+Kernel is respondible for following the instructions of routing table 
+There are certain autonomous network which are default configured in routing table like if you want to go google go through this network etc
 
+![image](https://github.com/user-attachments/assets/121d4742-9613-4da6-9445-455b599a5c6d)
+![image](https://github.com/user-attachments/assets/255f6187-62be-4336-804f-78746ee4dbbc)
+the above is the routing table of  a windows OS
+1. By default for any destination network the default gateway will be 192.168.210.52 and the interface defines  a partcular IP for this device so 169.254.210.52 is my Private IP assigned by this network Interface  as DHCP unable to resolve me any Ip in this case I got this Ip from APIPA Automatic Private IP Addressing .
+2.next all routes we can directly reach through a link no gateway required
+![image](https://github.com/user-attachments/assets/ee179945-e245-404d-973c-3905ae6e8916)
 
+The above is the route table in a linux machine
+For any destination network i.e 0.0.0.0/0 your default gateway will be 192.168.4.1 with the device as ethernet source IP or the Network Interface for this device is 192.168.7.179 IP for this device if connected to ethernet with metric 100 that means it gets the priority as comapred to second one which is connected through a wifi (the traffic is sent faster from here then 2nd one )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
+3rd one is a docker
