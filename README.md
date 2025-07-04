@@ -174,7 +174,19 @@ The source IP is assigned by DHCP
 3rd one If the request is from a docker virtual interface i.e from IP 127.17.0.1 then your network destination will be 127.17.0.0/16  and below all are direct link we just have to do ARP , NOW  we can directly communicate through the MAC 
 we can see ethernet has lower metric as compared to wifi so it is preffered but we can also manually configure like which one to choose when going to this particular destination.
 
-https://youtu.be/iV5fajdpb7c?si=WPkeoDREEroZZ8sC
+
+
+![image](https://github.com/user-attachments/assets/535bd814-a0e1-4db5-a0cc-58258a612437)
+
+https://bharat-miscellaneous-bucket.s3.ap-south-1.amazonaws.com/WhatsApp+Video+2025-07-03+at+11.17.30+PM.mp4
+
+we have example in the above video where a linux/ubuntu machine(192.168.7.179) is connected with a docker machine  with the docker0 interface 172.17.0.1 as shown in the routing table above.
+and as per the video we are trying to connect to a docker host/IP  172.17.0.2 which is having a single docker container   so as per the routing table we can  go to any host via our docker 0 interface . so later we connected to my docker host via my machine which had docker host already configured in route table  and now I can connect with my postgres DB .
+But Later we can see he tried to connect from other machine which is a MAC device it tried but it failed why because the docker machine is connected from my that linux machine and not from my mac machine .
+So what he did is he added a command telling connect to 172.17.0.2 by going through this network interface 192.168.7.179 so both this mac and linux machine as they are connected to same ethernet which is having a default gateway 192.168.4.1 .
+So my mac machine will ARP (REMEMBER BOTH MAC AND LINUX ARE CONNECTED TO SAME ETHERNET SO THEY ARE IN SAME SUBNET )  AND my mac machine will broad cast the message telling I want to connect to 172.17.0.2 my linux machine will read the message ok I am not having this IP but I have a netwokr Interface from which you can go there so my linux machine will give his IP to Mac machine now mAC Machine will warp the IP packet in frame and will send to linux machineit my linux machine will unpack the frame and sees the IP packet is not mine so it will forward that IP (IP Forwarding enabled in linux machine so it we can say it act like a next hop for Mac machine ) to other network interface i.e 172.17.0.1  .
+so  192.168.7.179 will forward the request to 172.17.0.1 Interface which is my docker  and boom we connected to our docker network and then we connected to our postgresdb which is there on IP/docker host   172.17.0.2  having a single docker container .
+#so this is how the entire Routing happens and packets are sent over a network will cover in more depth later
 
 
 
