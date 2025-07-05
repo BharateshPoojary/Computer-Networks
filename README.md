@@ -1,27 +1,32 @@
-# Routing in Computer Networks 
 
-
-**# Routing Computer Network in depth**
 **How a device communicate ?**
 
-Each device has a unique  **Media Access Control Address **   using which the data or packets which are sent over a network are reached to correct device.
+Each device has a unique  **Media Access Control** Address using which the data or packets which are sent over a network are reached to correct device.
 
-Basically when we try to send a data using  a **Hub Device** over the network  the message or frame sent from a computer is received by that hub device and that hub device transmits the frame to all system/computer connected to that hub and  informs the system or computer who may be the receivers connected to that hub. 
 
-If this message is not destined to you or if the destination mac address not matches with the receiver mac address then drop the message and that device will not receive the frame (alternative for "message" terminology).
+Basically when we try to send a data(frame) in a  **Hub Environment** over the network  the message or frame sent from a computer/machine is received by that hub device and that hub device transmits the frame to all computer/machines connected to that hub. 
 
-Now once we got the destined device the data which we got via like data is not sent directly over network we have to **serialize the data** before sending.
+## NOTE
+Devices before sending Frame have to do ARP(Address Resolution Protocol) **what is ARP we covered this in detail below**
+to know destination machines MAC ADDRESS currently they only know destinations IP Address but for sending any type of data irrespective in the same subnetwork we need the destination MAC Address.
 
- so **data is serialized into bytes then into  signal and sent accordingly** 
- If connected to **ethernet** then via electric pulses we serialize and send 
- If connected to **wifi** then via radio frequency we serialize and send 
- If connected to **fibre** then via light we serialize and send 
+### What the hub will do is ?
+It will send the frame to all the ports connected from devices and will tell ecah device that  
+If this message/Frame is not destined to you or if the destination MAC address not matches with the receiver MAC address then drop the message/Frame and that device will not receive the frame (alternative for "message" terminology).
+
+Now once we got the destined device we will send the data to it and  data is not sent directly over network we have to **serialize the data** before sending.
+
+## Data Serialization
+ **Data is serialized into bytes then into  signal and sent accordingly** 
+- If connected to **ethernet** then via electric pulses we serialize and send 
+- If connected to **wifi** then via radio frequency we serialize and send 
+- If connected to **fibre** then via light we serialize and send 
  
-So Data is serialized into bits and sent as signal this layer is called as **Physical layer in OSI model** 
+So Data is serialized into bytes then bits and sent as signal this layer is called as **Physical layer in OSI model** 
 
-Then it is sent up to Data link layer logical layer ultimately sending that to process or thread who ever requested 
+Then it is sent up to **Data link layer** logical layer ultimately sending that to process or thread who ever requested 
  - Hub is like dum it don't know which system is connected to my
-    port so it sends to all port
+    port so it sends the frame to all port
  - It has no intelligence
 
 So to overcome that **Switches** came into picture
