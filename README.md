@@ -271,5 +271,6 @@ https://bharat-miscellaneous-bucket.s3.ap-south-1.amazonaws.com/WhatsApp+Video+2
 - so  192.168.7.179 - our linux machine IP Connected through ethernet  will forward the request to 172.17.0.1 Interface which is my docker Interface   and boom we connected to our docker network and then we connected to our postgresdb which is there on IP/docker host 172.17.0.2  having a single docker container .
 - For getting  your machines routing table 
 ```
-route print 
+route print
+```
 # So this is how the entire Routing happens and packets are sent over a network will cover in more depth later
