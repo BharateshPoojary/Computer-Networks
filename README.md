@@ -269,4 +269,7 @@ https://bharat-miscellaneous-bucket.s3.ap-south-1.amazonaws.com/WhatsApp+Video+2
 - so my linux machine will give his IP to Mac machine now mAC Machine will wrap the IP packet in frame and will send to linux machine 
 -  my linux machine will unpack the frame and sees the IP packet is not mine so it will forward that IP **(IP Forwarding enabled in linux machine so  we can say it act like a next hop/router/gateway for Mac machine )** to other network interface i.e 172.17.0.1  .
 - so  192.168.7.179 - our linux machine IP Connected through ethernet  will forward the request to 172.17.0.1 Interface which is my docker Interface   and boom we connected to our docker network and then we connected to our postgresdb which is there on IP/docker host 172.17.0.2  having a single docker container .
+- For getting  your machines routing table 
+```
+route print 
 # So this is how the entire Routing happens and packets are sent over a network will cover in more depth later
