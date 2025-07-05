@@ -1,5 +1,5 @@
 
-**How a device communicate ?**
+## How a device communicate ?
 
 Each device has a unique  **Media Access Control** Address using which the data or packets which are sent over a network are reached to correct device.
 
