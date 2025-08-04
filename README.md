@@ -80,20 +80,20 @@ So to overcome that **Switches** came into picture
 -  Host identifies individual devices in a subnetwork or in a network
 
 ### The Mystery behind 255.255.255.0
-    255.255.255.0 - this is just an octal conversion of the 32 bit Ip
-    2^8 is 256 but allocation starts from 0 so 0 to 255 
-    ![image](https://github.com/user-attachments/assets/72b35e1a-4535-4b7f-b0b0-255e805a033f)
-    192.168.1.0 to 192.168.1.255 total 254 hosts can be connected in this subnet.
-    192.168.1.0 is network address → identifies the subnet
-    192.168.1.255 is broadcast address → used to send data to all hosts in the subne
-    The usable host IPs are: 192.168.1.1 to 192.168.1.254
+   255.255.255.0 - this is just an octal conversion of the 32 bit Ip
+   2^8 is 256 but allocation starts from 0 so 0 to 255 
+   ![image](https://github.com/user-attachments/assets/72b35e1a-4535-4b7f-b0b0-255e805a033f)
+   192.168.1.0 to 192.168.1.255 total 254 hosts can be connected in this subnet.
+   192.168.1.0 is network address → identifies the subnet
+   192.168.1.255 is broadcast address → used to send data to all hosts in the subne
+   The usable host IPs are: 192.168.1.1 to 192.168.1.254
 
 ### How to check if an IP is in my network?
-    Consider the IPAddress you want to check and its subnet mask
-    ![image](https://github.com/user-attachments/assets/24b76198-b963-44a9-9daa-7ff4231c282c)
-    This result (192.168.1.0) is the network address of your Ip so if any Ip gives you this network address then its in your network . 
-    If another IP (e.g., 192.168.1.4) gives the same result when ANDed with the subnet mask, then it's in the same network.
-    If the result  gives something different network address  then the particular IP is not part of that subnet
+   Consider the IPAddress you want to check and its subnet mask
+   ![image](https://github.com/user-attachments/assets/24b76198-b963-44a9-9daa-7ff4231c282c)
+   This result (192.168.1.0) is the network address of your Ip so if any Ip gives you this network address then its in your network . 
+   If another IP (e.g., 192.168.1.4) gives the same result when ANDed with the subnet mask, then it's in the same network.
+   If the result  gives something different network address  then the particular IP is not part of that subnet
 
 
 - If 2 devices are on the same sub network then they **should communicate using MAC Address** but Only IP Address is not enough for sending the data then,
