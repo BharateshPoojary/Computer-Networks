@@ -80,7 +80,8 @@ So to overcome that **Switches** came into picture
 -  Host identifies individual devices in a subnetwork or in a network
 
 ### The Mystery behind 255.255.255.0
-   255.255.255.0 - this is just an octal conversion of the 32 bit Ip
+<img width="871" height="286" alt="image" src="https://github.com/user-attachments/assets/a4f043f3-fc6c-41d5-a882-825f825dc1a2" />
+
    2^8 is 256 but allocation starts from 0 so 0 to 255 
    ![image](https://github.com/user-attachments/assets/72b35e1a-4535-4b7f-b0b0-255e805a033f)
    192.168.1.0 to 192.168.1.255 total 254 hosts can be connected in this subnet.
