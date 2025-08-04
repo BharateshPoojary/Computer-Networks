@@ -215,14 +215,14 @@ and from there you can send the traffic to where they are intended to go.
 ![image](https://github.com/user-attachments/assets/6ede3639-373e-4bfb-8121-e1907e6009cb)
 
 ### Who updates the routing table ?
-``` 
+
 Kernel,DHCP,Other protocols like OSPF,BGP or even manually  
 DHCP-Dynamic Host Control Protocol which assigns the IP address for us if we dont want to statically configure by us .
 OSPF-Open shortest protocol first
 BGP-Border Gateway Protocol on top of which the internet runs on
 All of this  do is just update the routing table
 ![image](https://github.com/user-attachments/assets/de09dabf-cadd-4071-8f6f-213b05a1b1f7)
-```
+
 ### OHCP What it will do is ? 
 First It will make a list that from this Machine through this particular  Network Card what are all the possible Interfaces what are the possible direct links based on that it determines the shortest path to send data and this Shortest Path it writes in the routing table
 ### Kernel 
